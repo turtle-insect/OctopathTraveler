@@ -1,0 +1,16 @@
+﻿<Window x:Class="OctopathTraveler.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OctopathTraveler"
+        mc:Ignorable="d"
+        Title="AboutWindow" Height="110" Width="230">
+    <Grid>
+        <StackPanel>
+            <Label Content="Creater ： カメムシ"/>
+            <Label Content="HP ： http://kamemushi.esy.es/" MouseDown="LabelHP_MouseDown"/>
+            <Label Content="Mail ： turtle.insect@gmail.com"/>
+        </StackPanel>
+    </Grid>
+</Window>

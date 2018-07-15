@@ -1,0 +1,194 @@
+﻿<Window x:Class="OctopathTraveler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OctopathTraveler"
+        mc:Ignorable="d"
+        Title="OCTOPATH TRAVELER セーブデータ改造(Nintendo Switch)" Height="650" Width="800"
+        WindowStartupLocation="CenterScreen"
+        AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="ファイル(_F)">
+                    <MenuItem Header="開く(_O)" Click="MenuItemFileOpen_Click"/>
+                    <MenuItem Header="上書き保存(_S)" Click="MenuItemFileSave_Click"/>
+                    <MenuItem Header="名前を付けて保存(_S)" Click="MenuItemFileSaveAs_Click"/>
+                    <Separator/>
+                    <MenuItem Header="終了(_X)" Click="MenuItemExit_Click"/>
+                </MenuItem>
+                <MenuItem Header="情報(_A)" Click="MenuItemAbout_Click"/>
+            </Menu>
+            <ToolBar DockPanel.Dock="Top">
+                <Button Width="32" Height="32" Click="ToolBarFileOpen_Click" ToolTip="開く">
+                    <Image Source="{StaticResource Open}"/>
+                </Button>
+                <Button Width="32" Height="32" Click="ToolBarFileSave_Click" ToolTip="保存">
+                    <Image Source="{StaticResource Save}"/>
+                </Button>
+            </ToolBar>
+            <TabControl>
+                <TabItem Header="基本情報">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="12*"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="お金"/>
+                        <TextBox Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="人物">
+                    <Grid>
+                        <Grid.Resources>
+                            <local:CharactorNameConverter x:Key="CharactorNameConverter"/>
+                            <local:CharactorJobConverter x:Key="CharactorJobConverter"/>
+                            <local:CharactorEquipmentConverter x:Key="CharactorEquipmentConverter"/>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox Name="CharactorList" ItemsSource="{Binding Charactors}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding ID, Converter={StaticResource CharactorNameConverter}}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Lv"/>
+                            <TextBox Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.Lv, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="1" Content="Exp"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.Exp, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="2" Content="RawHP"/>
+                            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.RawHP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="3" Content="RawMP"/>
+                            <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.RawMP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="4" Content="FirstJob"/>
+                            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.FirstJob, Converter={StaticResource CharactorJobConverter}}"/>
+                            <Label Grid.Row="5" Content="SecondJob"/>
+                            <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.SecondJob, Converter={StaticResource CharactorJobConverter}}"/>
+                            <Label Grid.Row="6" Content="JobPoint"/>
+                            <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.JobPoint, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="7" Content="HP+"/>
+                            <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.HP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="8" Content="MP+"/>
+                            <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.MP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="9" Content="BP+"/>
+                            <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.BP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="10" Content="SP+"/>
+                            <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.SP, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="11" Content="ATK+"/>
+                            <TextBox Grid.Row="11" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.ATK, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="12" Content="DEF+"/>
+                            <TextBox Grid.Row="12" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.DEF, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="13" Content="MATK+"/>
+                            <TextBox Grid.Row="13" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.MATK, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="14" Content="MDEF+"/>
+                            <TextBox Grid.Row="14" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.MDEF, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="15" Content="ACC+"/>
+                            <TextBox Grid.Row="15" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.ACC, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="16" Content="EVA+"/>
+                            <TextBox Grid.Row="16" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.EVA, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="17" Content="CON+"/>
+                            <TextBox Grid.Row="17" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.CON, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Label Grid.Row="18" Content="AGI+"/>
+                            <TextBox Grid.Row="18" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.AGI, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="7*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Sword"/>
+                            <Label Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Sword, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Column="2" Content="..." Click="ButtonSword_Click"/>
+                            <Label Grid.Row="1" Content="Lance"/>
+                            <Label Grid.Row="1" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Lance, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="1" Grid.Column="2" Content="..." Click="ButtonLance_Click"/>
+                            <Label Grid.Row="2" Content="Dagger"/>
+                            <Label Grid.Row="2" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Dagger, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="2" Grid.Column="2" Content="..." Click="ButtonDagger_Click"/>
+                            <Label Grid.Row="3" Content="Axe"/>
+                            <Label Grid.Row="3" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Axe, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="3" Grid.Column="2" Content="..." Click="ButtonAxe_Click"/>
+                            <Label Grid.Row="4" Content="Bow"/>
+                            <Label Grid.Row="4" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Bow, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="4" Grid.Column="2" Content="..." Click="ButtonBow_Click"/>
+                            <Label Grid.Row="5" Content="Rod"/>
+                            <Label Grid.Row="5" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Rod, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="5" Grid.Column="2" Content="..." Click="ButtonRod_Click"/>
+                            <Label Grid.Row="6" Content="Shield"/>
+                            <Label Grid.Row="6" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Shield, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="6" Grid.Column="2" Content="..." Click="ButtonShield_Click"/>
+                            <Label Grid.Row="7" Content="Head"/>
+                            <Label Grid.Row="7" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Head, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="7" Grid.Column="2" Content="..." Click="ButtonHead_Click"/>
+                            <Label Grid.Row="8" Content="Body"/>
+                            <Label Grid.Row="8" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Body, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="8" Grid.Column="2" Content="..." Click="ButtonBody_Click"/>
+                            <Label Grid.Row="9" Content="Accessory1"/>
+                            <Label Grid.Row="9" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Accessory1, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="9" Grid.Column="2" Content="..." Click="ButtonAccessory1_Click"/>
+                            <Label Grid.Row="10" Content="Accessory2"/>
+                            <Label Grid.Row="10" Grid.Column="1" Content="{Binding ElementName=CharactorList, Path=SelectedItem.Accessory2, Converter={StaticResource CharactorEquipmentConverter}}"/>
+                            <Button Grid.Row="10" Grid.Column="2" Content="..." Click="ButtonAccessory2_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>
