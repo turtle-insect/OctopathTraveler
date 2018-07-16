@@ -21,6 +21,14 @@ namespace OctopathTraveler
 	{
 		public uint ID { get; set; }
 
+		public enum eType
+		{
+			item,
+			equipment,
+		};
+
+		public eType Type { private get; set; } = eType.equipment;
+
 		public ItemChoiceWindow()
 		{
 			InitializeComponent();
@@ -62,7 +70,13 @@ namespace OctopathTraveler
 		private void CreateItemList(String filter)
 		{
 			ListBoxItem.Items.Clear();
-			foreach (var item in Info.Instance().Equipments)
+			List<NameValueInfo> items = Info.Instance().Equipments;
+			if(Type==eType.item)
+			{
+				items = Info.Instance().Items;
+			}
+
+			foreach (var item in items)
 			{
 				if (String.IsNullOrEmpty(filter) || item.Name.IndexOf(filter) >= 0)
 				{

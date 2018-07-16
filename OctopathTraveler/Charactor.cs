@@ -22,6 +22,7 @@ namespace OctopathTraveler
 		{
 			get { return SaveData.Instance().ReadNumber(mGVAS.Address("CharacterID"), 4); }
 		}
+
 		public uint Lv
 		{
 			get { return SaveData.Instance().ReadNumber(mGVAS.Address("Level"), 4); }

@@ -201,6 +201,19 @@ namespace OctopathTraveler
 			}
 		}
 
+		private void ButtonItem_Click(object sender, RoutedEventArgs e)
+		{
+			Item item = (sender as Button)?.DataContext as Item;
+			if(item != null)
+			{
+				ItemChoiceWindow window = new ItemChoiceWindow();
+				window.Type = ItemChoiceWindow.eType.item;
+				window.ID = item.ID;
+				window.ShowDialog();
+				item.ID = window.ID;
+			}
+		}
+
 		private uint ChoiceEquipment(uint id)
 		{
 			ItemChoiceWindow window = new ItemChoiceWindow();

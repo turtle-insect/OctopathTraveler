@@ -10,6 +10,7 @@ namespace OctopathTraveler
 	class DataContext
 	{
 		public ObservableCollection<Charactor> Charactors { get; set; } = new ObservableCollection<Charactor>();
+		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
 
 		private readonly uint mMoneyAddress;
@@ -23,7 +24,12 @@ namespace OctopathTraveler
 				Charactors.Add(chara);
 			}
 
-			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
+			foreach (var address in save.FindAddress("ItemID_", 0))
+			{
+				Items.Add(new Item(address));
+			}
+
+				mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
 		}
 
 		public uint Money

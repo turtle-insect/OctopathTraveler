@@ -6,6 +6,7 @@ namespace OctopathTraveler
 	class Info
 	{
 		private static Info mThis;
+		public List<NameValueInfo> Items { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> CharaNames { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Jobs { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Equipments { get; private set; } = new List<NameValueInfo>();
@@ -38,6 +39,7 @@ namespace OctopathTraveler
 
 		private void Init()
 		{
+			AppendList("info\\item.txt", Items);
 			AppendList("info\\chara.txt", CharaNames);
 			AppendList("info\\job.txt", Jobs);
 			AppendList("info\\equipment.txt", Equipments);

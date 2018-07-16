@@ -70,9 +70,12 @@
     <Compile Include="IGVASValue.cs" />
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="ItemChoiceWindow.xaml.cs">
       <DependentUpon>ItemChoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ItemGVAS.cs" />
+    <Compile Include="ItemNameConverter.cs" />
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Util.cs" />
