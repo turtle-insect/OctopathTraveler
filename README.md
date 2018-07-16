@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/p0qp4jhksi2j0ktq?svg=true)](https://ci.appveyor.com/project/OctopathTraveler)
+[![Build status](https://ci.appveyor.com/api/projects/status/p0qp4jhksi2j0ktq?svg=true)](https://ci.appveyor.com/project/turtle-insect/octopathtraveler)
 
 # 概要
 Switch OCTOPATH TRAVELER(オクトパス トラベラー)のセーブデータ編集Tool
