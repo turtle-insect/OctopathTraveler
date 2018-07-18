@@ -65,9 +65,7 @@
     <Compile Include="CharactorJobConverter.cs" />
     <Compile Include="CharactorNameConverter.cs" />
     <Compile Include="DataContext.cs" />
-    <Compile Include="GVASArrayValue.cs" />
-    <Compile Include="GVASIntValue.cs" />
-    <Compile Include="IGVASValue.cs" />
+    <Compile Include="GVAS.cs" />
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
     <Compile Include="Item.cs" />
@@ -76,7 +74,10 @@
     </Compile>
     <Compile Include="ItemGVAS.cs" />
     <Compile Include="ItemNameConverter.cs" />
+    <Compile Include="Member.cs" />
     <Compile Include="NameValueInfo.cs" />
+    <Compile Include="PartyGVAS.cs" />
+    <Compile Include="PartyMemberConverter.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Util.cs" />
     <Page Include="AboutWindow.xaml">

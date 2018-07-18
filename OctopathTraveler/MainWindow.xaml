@@ -205,6 +205,26 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
+                <TabItem Header="パーティー">
+                    <Grid>
+                        <Grid.Resources>
+                            <local:PartyMemberConverter x:Key="PartyMemberConverter"/>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox ItemsSource="{Binding MainParty}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <ComboBox ItemsSource="{Binding Path=DataContext.Names, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:MainWindow}}"
+                                              DisplayMemberPath="Name" SelectedIndex="{Binding ID, Converter={StaticResource PartyMemberConverter}}"
+                                              Width="200"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>

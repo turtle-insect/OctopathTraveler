@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace OctopathTraveler
 {
-	class CharactorGVAS
+	class CharactorGVAS : GVAS
 	{
-		private Dictionary<String, IGVASValue> mValues = new Dictionary<string, IGVASValue>();
-
 		public CharactorGVAS(uint address)
 		{
 			for(int i = 0; i < 9; i++)
@@ -30,47 +28,15 @@ namespace OctopathTraveler
 			}
 		}
 
-		public uint Address(String key)
+		protected override String KeyName(String key)
 		{
-			return mValues[key].Address;
-		}
-
-		private uint AppendValue(uint address)
-		{
-			uint length = 1;
-			for (; SaveData.Instance().ReadNumber(address + length, 1) != 0; length++) ;
-			String key = SaveData.Instance().ReadText(address, length);
-			key = key.Substring(0, key.IndexOf("_"));
-			if(key == "Accessory")
+			if (key == "Accessory")
 			{
 				String option = "1";
 				if (mValues.ContainsKey("Accessory1")) option = "2";
 				key += option;
 			}
-				address += length + 5;
-			length = 1;
-			for (; SaveData.Instance().ReadNumber(address + length, 1) != 0; length++) ;
-			String type = SaveData.Instance().ReadText(address, length);
-			address += length + 1;
-			IGVASValue value = null;
-			switch(type)
-			{
-				case "IntProperty":
-					value = new GVASIntValue();
-					break;
-
-				case "ArrayProperty":
-					value = new GVASArrayValue();
-					break;
-			}
-
-			if(value != null)
-			{
-				address = value.Calc(address);
-				mValues.Add(key, value);
-			}
-
-			return address;
+			return key;
 		}
 	}
 }

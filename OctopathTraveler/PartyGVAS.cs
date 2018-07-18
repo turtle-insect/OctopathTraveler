@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace OctopathTraveler
 {
-	interface IGVASValue
-	{
-		uint Calc(uint address);
-		uint Address { get; }
+    class PartyGVAS : GVAS
+    {
+		public PartyGVAS(uint address)
+		{
+			address = AppendValue(address);
+		}
 	}
 }

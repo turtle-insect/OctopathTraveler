@@ -9,9 +9,11 @@ namespace OctopathTraveler
 {
 	class DataContext
 	{
+		public ObservableCollection<Member> MainParty { get; set; } = new ObservableCollection<Member>();
 		public ObservableCollection<Charactor> Charactors { get; set; } = new ObservableCollection<Charactor>();
 		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
+		public List<NameValueInfo> Names { get; private set; } = Info.Instance().CharaNames;
 
 		private readonly uint mMoneyAddress;
 		public DataContext()
@@ -29,7 +31,13 @@ namespace OctopathTraveler
 				Items.Add(new Item(address));
 			}
 
-				mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
+			var partyGVAS = new PartyGVAS(save.FindAddress("MainMemberID_", 0)[0]);
+			for(uint i = 0; i < 4; i++)
+			{
+				MainParty.Add(new Member(partyGVAS.Address("MainMemberID_" + i.ToString())));
+			}
+
+			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
 		}
 
 		public uint Money
