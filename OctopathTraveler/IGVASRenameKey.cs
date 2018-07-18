@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace OctopathTraveler
 {
-    class PartyGVAS : GVAS
+    interface IGVASRenameKey
     {
-		public PartyGVAS(uint address)
-		{
-			address = AppendValue(address);
-		}
-	}
+		String Rename(String key);
+    }
 }

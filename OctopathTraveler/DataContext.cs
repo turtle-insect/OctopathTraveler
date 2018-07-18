@@ -31,10 +31,11 @@ namespace OctopathTraveler
 				Items.Add(new Item(address));
 			}
 
-			var partyGVAS = new PartyGVAS(save.FindAddress("MainMemberID_", 0)[0]);
+			var gvas = new GVAS(null);
+			gvas.AppendValue(save.FindAddress("MainMemberID_", 0)[0]);
 			for(uint i = 0; i < 4; i++)
 			{
-				MainParty.Add(new Member(partyGVAS.Address("MainMemberID_" + i.ToString())));
+				MainParty.Add(new Member(gvas.Address("MainMemberID_" + i.ToString())));
 			}
 
 			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;

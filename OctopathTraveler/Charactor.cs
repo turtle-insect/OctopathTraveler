@@ -8,14 +8,31 @@ using System.ComponentModel;
 
 namespace OctopathTraveler
 {
-	class Charactor : INotifyPropertyChanged
+	class Charactor : INotifyPropertyChanged, IGVASRenameKey
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private CharactorGVAS mGVAS;
+		private GVAS mGVAS;
 		public Charactor(uint address)
 		{
-			mGVAS = new CharactorGVAS(address);
+			mGVAS = new GVAS(this);
+
+			for (int i = 0; i < 9; i++)
+			{
+				address = mGVAS.AppendValue(address);
+			}
+
+			address = SaveData.Instance().FindAddress("Sword_", address)[0];
+			for (int i = 0; i < 11; i++)
+			{
+				address = mGVAS.AppendValue(address);
+			}
+
+			address = SaveData.Instance().FindAddress("HP_", address)[0];
+			for (int i = 0; i < 12; i++)
+			{
+				address = mGVAS.AppendValue(address);
+			}
 		}
 
 		public uint ID
@@ -245,6 +262,17 @@ namespace OctopathTraveler
 				SaveData.Instance().WriteNumber(mGVAS.Address("Accessory2"), 4, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Accessory2)));
 			}
+		}
+
+		public string Rename(string key)
+		{
+			if (key == "Accessory")
+			{
+				String option = "1";
+				if (mGVAS.HasKey("Accessory1")) option = "2";
+				key += option;
+			}
+			return key;
 		}
 	}
 }

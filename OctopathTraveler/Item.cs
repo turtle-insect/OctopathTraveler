@@ -11,10 +11,15 @@ namespace OctopathTraveler
 	{
 		public event PropertyChangedEventHandler PropertyChanged;
 
-		private ItemGVAS mGVAS;
+		private GVAS mGVAS;
 		public Item(uint address)
 		{
-			mGVAS = new ItemGVAS(address);
+			mGVAS = new GVAS(null);
+
+			for (int i = 0; i < 2; i++)
+			{
+				address = mGVAS.AppendValue(address);
+			}
 		}
 
 		public uint ID
