@@ -35,7 +35,7 @@ namespace OctopathTraveler
 			gvas.AppendValue(save.FindAddress("MainMemberID_", 0)[0]);
 			for(uint i = 0; i < 4; i++)
 			{
-				MainParty.Add(new Member(gvas.Address("MainMemberID_" + i.ToString())));
+				MainParty.Add(new Member(gvas.Key("MainMemberID_" + i.ToString()).Address));
 			}
 
 			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;

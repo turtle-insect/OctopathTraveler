@@ -24,20 +24,30 @@ namespace OctopathTraveler
 
 		public uint ID
 		{
-			get { return SaveData.Instance().ReadNumber(mGVAS.Address("ItemID"), 4); }
+			get
+			{
+				GVASData data = mGVAS.Key("ItemID");
+				return SaveData.Instance().ReadNumber(data.Address, data.Size);
+			}
 			set
 			{
-				SaveData.Instance().WriteNumber(mGVAS.Address("ItemID"), 4, value);
+				GVASData data = mGVAS.Key("ItemID");
+				SaveData.Instance().WriteNumber(data.Address, data.Size, value);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ID)));
 			}
 		}
 
 		public uint Count
 		{
-			get { return SaveData.Instance().ReadNumber(mGVAS.Address("Num"), 4); }
+			get
+			{
+				GVASData data = mGVAS.Key("Num");
+				return SaveData.Instance().ReadNumber(data.Address, data.Size);
+			}
 			set
 			{
-				Util.WriteNumber(mGVAS.Address("Num"), 4, value, 0, 99);
+				GVASData data = mGVAS.Key("Num");
+				Util.WriteNumber(data.Address, data.Size, value, 0, 99);
 				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Count)));
 			}
 		}

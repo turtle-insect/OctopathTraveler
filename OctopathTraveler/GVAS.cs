@@ -8,7 +8,7 @@ namespace OctopathTraveler
 {
     class GVAS
     {
-		private Dictionary<String, uint> mValues = new Dictionary<string, uint>();
+		private Dictionary<String, GVASData> mValues = new Dictionary<string, GVASData>();
 		private IGVASRenameKey mRename;
 
 		public GVAS(IGVASRenameKey rename)
@@ -16,7 +16,7 @@ namespace OctopathTraveler
 			mRename = rename;
 		}
 
-		public uint Address(String key)
+		public GVASData Key(String key)
 		{
 			return mValues[key];
 		}
@@ -28,36 +28,60 @@ namespace OctopathTraveler
 
 		public uint AppendValue(uint address)
 		{
-			uint length = 1;
-			for (; SaveData.Instance().ReadNumber(address + length, 1) != 0; length++) ;
+			// length
+			address -= 4;
+			uint length = SaveData.Instance().ReadNumber(address, 4);
+			// key
+			address += 4;
 			String key = SaveData.Instance().ReadText(address, length);
-			key = key.Substring(0, key.IndexOf("_"));
+			if (key.IndexOf("_") > 0)
+			{
+				key = key.Substring(0, key.IndexOf("_"));
+			}
 			if(mRename != null)
 			{
 				key = mRename.Rename(key);
 			}
-			address += length + 5;
-			length = 1;
-			for (; SaveData.Instance().ReadNumber(address + length, 1) != 0; length++) ;
+			address += length;
+			length = SaveData.Instance().ReadNumber(address, 4);
+			address += 4;
 			String type = SaveData.Instance().ReadText(address, length);
-			address += length + 1;
+			address += length;
 			switch (type)
 			{
 				case "IntProperty":
-					mValues.Add(key, address + 9);
+					mValues.Add(key, new GVASData() { Address = address + 9, Size = 4 });
 					address += 17;
 					break;
 
 				case "ArrayProperty":
-					address += 25;
+					address += 8;
+					length = SaveData.Instance().ReadNumber(address, 4);
+					address += 4;
+					type = SaveData.Instance().ReadText(address, length);
+					address += length + 1;
 					uint count = SaveData.Instance().ReadNumber(address, 4);
 					address += 4;
+
+					uint size = 4;
+					switch(type)
+					{
+						case "BoolProperty":
+						case "ByteProperty":
+							size = 1;
+							break;
+					}
 					for (uint i = 0; i < count; i++)
 					{
-						mValues.Add(key + "_" + i.ToString(), address);
+						mValues.Add(key + "_" + i.ToString(), new GVASData() { Address = address, Size = size });
 						address += 4;
 					}
 					address += 4;
+					break;
+
+				default:
+					address += 4;
+					address += AppendValue(address);
 					break;
 			}
 			return address;

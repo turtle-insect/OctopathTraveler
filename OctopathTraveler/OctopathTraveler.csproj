@@ -65,6 +65,7 @@
     <Compile Include="CharactorNameConverter.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="GVAS.cs" />
+    <Compile Include="GVASData.cs" />
     <Compile Include="IGVASRenameKey.cs" />
     <Compile Include="ILineAnalysis.cs" />
     <Compile Include="Info.cs" />
