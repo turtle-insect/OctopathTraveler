@@ -225,6 +225,24 @@
                         </ListBox>
                     </Grid>
                 </TabItem>
+                <TabItem Header="サブストーリー">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <DockPanel>
+                            <Label DockPanel.Dock="Top" Content="ALL"/>
+                            <ListBox ItemsSource="{Binding MissionIDs}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding ID}" Width="200"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+                    </Grid>
+                </TabItem>
             </TabControl>
         </DockPanel>
     </Grid>

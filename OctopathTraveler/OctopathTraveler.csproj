@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="ItemNameConverter.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="MissionID.cs" />
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="PartyMemberConverter.cs" />
     <Compile Include="SaveData.cs" />

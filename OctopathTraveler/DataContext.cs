@@ -12,6 +12,7 @@ namespace OctopathTraveler
 		public ObservableCollection<Member> MainParty { get; set; } = new ObservableCollection<Member>();
 		public ObservableCollection<Charactor> Charactors { get; set; } = new ObservableCollection<Charactor>();
 		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
+		public ObservableCollection<MissionID> MissionIDs { get; set; } = new ObservableCollection<MissionID>();
 		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
 		public List<NameValueInfo> Names { get; private set; } = Info.Instance().CharaNames;
 
@@ -36,6 +37,13 @@ namespace OctopathTraveler
 			for(uint i = 0; i < 4; i++)
 			{
 				MainParty.Add(new Member(gvas.Key("MainMemberID_" + i.ToString()).Address));
+			}
+
+			gvas = new GVAS(null);
+			gvas.AppendValue(save.FindAddress("SubMissionOrder", 0)[0]);
+			for (uint i = 0; i < 200; i++)
+			{
+				MissionIDs.Add(new MissionID(gvas.Key("SubMissionOrder_" + i.ToString())));
 			}
 
 			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
