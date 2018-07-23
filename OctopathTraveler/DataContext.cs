@@ -13,6 +13,7 @@ namespace OctopathTraveler
 		public ObservableCollection<Charactor> Charactors { get; set; } = new ObservableCollection<Charactor>();
 		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<MissionID> MissionIDs { get; set; } = new ObservableCollection<MissionID>();
+		public ObservableCollection<CountryMission> Countris { get; set; } = new ObservableCollection<CountryMission>();
 		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
 		public List<NameValueInfo> Names { get; private set; } = Info.Instance().CharaNames;
 
@@ -44,6 +45,26 @@ namespace OctopathTraveler
 			for (uint i = 0; i < 200; i++)
 			{
 				MissionIDs.Add(new MissionID(gvas.Key("SubMissionOrder_" + i.ToString())));
+			}
+
+			var missionStates = save.FindAddress("MissionState_", 0);
+			var clearIndex = save.FindAddress("ClearIndex_", 0);
+			if(missionStates.Count == clearIndex.Count)
+			{
+				for (int i = 0; i < missionStates.Count; i++)
+				{
+					var stateGvas = new GVAS(null);
+					stateGvas.AppendValue(missionStates[i]);
+					var clearGvas = new GVAS(null);
+					clearGvas.AppendValue(clearIndex[i]);
+
+					var mission = new CountryMission() { Country = Info.Instance().Countris[i].Name };
+					for(int j = 0; j < 100; j++)
+					{
+						mission.Missions.Add(new Mission(stateGvas.Key("MissionState_" + j.ToString()), clearGvas.Key("ClearIndex_" + j.ToString())));
+					}
+					Countris.Add(mission);
+				}
 			}
 
 			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;

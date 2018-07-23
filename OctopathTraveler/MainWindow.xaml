@@ -246,14 +246,14 @@
                             <Label DockPanel.Dock="Top" Content="国"/>
                             <ListBox Name="CountryList" ItemsSource="{Binding Countris}" DisplayMemberPath="Country"/>
                         </DockPanel>
-                        <ListBox Grid.Column="2" ItemsSource="{Binding ElementName=CountryList}">
+                        <ListBox Grid.Column="2" ItemsSource="{Binding ElementName=CountryList, Path=SelectedItem.Missions}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <Label Content="aaa"/>
-                                        <TextBox Text="{Binding State}"/>
-                                        <Label Content="bbb"/>
-                                        <CheckBox Checked="{Binding Clear}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Content="State"/>
+                                        <TextBox Text="{Binding State}" Width="50"/>
+                                        <Label Content="Clear"/>
+                                        <CheckBox IsChecked="{Binding Clear}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

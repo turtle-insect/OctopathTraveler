@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace OctopathTraveler
 {
-	class ContryMission
+	class Mission
 	{
 		private readonly GVASData mState;
 		private readonly GVASData mClear;
 
-		public ContryMission(String name, GVASData state, GVASData clear)
+		public Mission(GVASData state, GVASData clear)
 		{
-			Country = name;
 			mState = state;
 			mClear = clear;
 		}
 
-		public String Country { get; private set; }
 
 		public uint State
 		{
@@ -28,8 +26,8 @@ namespace OctopathTraveler
 
 		public Boolean Clear
 		{
-			get { return SaveData.Instance().ReadNumber(mState.Address, mState.Size) == 1; }
-			set { SaveData.Instance().WriteNumber(mState.Address, mState.Size, value == true ? 1U : 0); }
+			get { return SaveData.Instance().ReadNumber(mClear.Address, mClear.Size) == 1; }
+			set { SaveData.Instance().WriteNumber(mClear.Address, mClear.Size, value == true ? 1U : 0); }
 		}
 	}
 }

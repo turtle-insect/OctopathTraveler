@@ -74,9 +74,9 @@ namespace OctopathTraveler
 					for (uint i = 0; i < count; i++)
 					{
 						mValues.Add(key + "_" + i.ToString(), new GVASData() { Address = address, Size = size });
-						address += 4;
+						address += size;
 					}
-					address += 4;
+					address += size;
 					break;
 
 				default:
