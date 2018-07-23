@@ -63,6 +63,7 @@
     <Compile Include="CharactorEquipmentConverter.cs" />
     <Compile Include="CharactorJobConverter.cs" />
     <Compile Include="CharactorNameConverter.cs" />
+    <Compile Include="ContryMission.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="GVAS.cs" />
     <Compile Include="GVASData.cs" />

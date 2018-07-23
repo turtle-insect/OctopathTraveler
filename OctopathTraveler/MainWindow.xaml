@@ -229,7 +229,8 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <DockPanel>
                             <Label DockPanel.Dock="Top" Content="ALL"/>
@@ -241,6 +242,22 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                         </DockPanel>
+                        <DockPanel Grid.Column="1">
+                            <Label DockPanel.Dock="Top" Content="国"/>
+                            <ListBox Name="CountryList" ItemsSource="{Binding Countris}" DisplayMemberPath="Country"/>
+                        </DockPanel>
+                        <ListBox Grid.Column="2" ItemsSource="{Binding ElementName=CountryList}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Label Content="aaa"/>
+                                        <TextBox Text="{Binding State}"/>
+                                        <Label Content="bbb"/>
+                                        <CheckBox Checked="{Binding Clear}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </Grid>
                 </TabItem>
             </TabControl>
