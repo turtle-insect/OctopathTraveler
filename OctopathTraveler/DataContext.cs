@@ -14,6 +14,7 @@ namespace OctopathTraveler
 		public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 		public ObservableCollection<MissionID> MissionIDs { get; set; } = new ObservableCollection<MissionID>();
 		public ObservableCollection<CountryMission> Countris { get; set; } = new ObservableCollection<CountryMission>();
+		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
 		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
 		public List<NameValueInfo> Names { get; private set; } = Info.Instance().CharaNames;
 
@@ -64,6 +65,28 @@ namespace OctopathTraveler
 						mission.Missions.Add(new Mission(stateGvas.Key("MissionState_" + j.ToString()), clearGvas.Key("ClearIndex_" + j.ToString())));
 					}
 					Countris.Add(mission);
+				}
+			}
+
+			gvas = new GVAS(null);
+			gvas.AppendValue(save.FindAddress("VisitedMap", 0)[0]);
+			uint id = 0;
+			for (uint i = 0; i < 10; i++)
+			{
+				GVASData data = gvas.Key("VisitedMap_" + i.ToString());
+				for (uint size = 0; size < data.Size; size++)
+				{
+					for (uint bit = 0; bit < 8; bit++)
+					{
+						var place = new Place(data.Address + size, bit);
+						NameValueInfo info = Info.Instance().Search(Info.Instance().Places, id);
+						if (info != null)
+						{
+							place.Name = info.Name;
+						}
+						Places.Add(place);
+						id++;
+					}
 				}
 			}
 

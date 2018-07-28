@@ -80,6 +80,7 @@
     <Compile Include="MissionID.cs" />
     <Compile Include="NameValueInfo.cs" />
     <Compile Include="PartyMemberConverter.cs" />
+    <Compile Include="Place.cs" />
     <Compile Include="SaveData.cs" />
     <Compile Include="Util.cs" />
     <Page Include="AboutWindow.xaml">

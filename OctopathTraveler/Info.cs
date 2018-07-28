@@ -11,6 +11,7 @@ namespace OctopathTraveler
 		public List<NameValueInfo> Jobs { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Equipments { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Countris { get; private set; } = new List<NameValueInfo>();
+		public List<NameValueInfo> Places { get; private set; } = new List<NameValueInfo>();
 
 		private Info() { }
 
@@ -45,6 +46,7 @@ namespace OctopathTraveler
 			AppendList("info\\job.txt", Jobs);
 			AppendList("info\\equipment.txt", Equipments);
 			AppendList("info\\country.txt", Countris);
+			AppendList("info\\place.txt", Places);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)
