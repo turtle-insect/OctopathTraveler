@@ -28,3 +28,5 @@ http://www.jp.square-enix.com/octopathtraveler/
 
 # Special Thanks
 * https://gbatemp.net/threads/octopath-traveler-save-editing.511125/
+   * [SleepyPrince](https://gbatemp.net/members/sleepyprince.94652/)
+   * [Takumah](https://gbatemp.net/members/takumah.456165/)
