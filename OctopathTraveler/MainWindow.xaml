@@ -101,9 +101,9 @@
                             <Label Grid.Row="3" Content="RawMP"/>
                             <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.RawMP, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Grid.Row="4" Content="FirstJob"/>
-                            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.FirstJob, Converter={StaticResource CharactorJobConverter}}"/>
+                            <ComboBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Info.Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.FirstJob, Converter={StaticResource CharactorJobConverter}}"/>
                             <Label Grid.Row="5" Content="SecondJob"/>
-                            <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.SecondJob, Converter={StaticResource CharactorJobConverter}}"/>
+                            <ComboBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Info.Jobs}" DisplayMemberPath="Name" SelectedIndex="{Binding ElementName=CharactorList, Path=SelectedItem.SecondJob, Converter={StaticResource CharactorJobConverter}}"/>
                             <Label Grid.Row="6" Content="JobPoint"/>
                             <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding ElementName=CharactorList, Path=SelectedItem.JobPoint, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Grid.Row="7" Content="HP+"/>
@@ -214,6 +214,26 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
+                <TabItem Header="手なずけたモンスター">
+                    <TabItem.Resources>
+                        <local:TameMonsterConverter x:Key="TameMonsterConverter"/>
+                    </TabItem.Resources>
+                    <ListBox ItemsSource="{Binding TameMonsters}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Name "/>
+                                    <ComboBox ItemsSource="{Binding Path=DataContext.Info.TameMonsters, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:MainWindow}}"
+                                              DisplayMemberPath="Name" SelectedIndex="{Binding ID, Converter={StaticResource TameMonsterConverter}}"
+                                              Width="200"/>
+                                    <Label Content="Count "/>
+                                    <TextBox Text="{Binding Count,UpdateSourceTrigger=PropertyChanged}" Width="80"/>
+                                    <CheckBox IsChecked="{Binding Used}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
                 <TabItem Header="パーティー">
                     <Grid>
                         <Grid.Resources>
@@ -226,7 +246,7 @@
                         <ListBox ItemsSource="{Binding MainParty}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <ComboBox ItemsSource="{Binding Path=DataContext.Names, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:MainWindow}}"
+                                    <ComboBox ItemsSource="{Binding Path=DataContext.Info.CharaNames, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=local:MainWindow}}"
                                               DisplayMemberPath="Name" SelectedIndex="{Binding ID, Converter={StaticResource PartyMemberConverter}}"
                                               Width="200"/>
                                 </DataTemplate>

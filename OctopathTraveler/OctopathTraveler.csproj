@@ -82,6 +82,9 @@
     <Compile Include="PartyMemberConverter.cs" />
     <Compile Include="Place.cs" />
     <Compile Include="SaveData.cs" />
+    <Compile Include="TameMonster.cs" />
+    <Compile Include="TameMonsterConverter.cs" />
+    <Compile Include="TameMonsterInfo.cs" />
     <Compile Include="Util.cs" />
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>

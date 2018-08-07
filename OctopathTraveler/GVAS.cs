@@ -54,6 +54,11 @@ namespace OctopathTraveler
 					address += 17;
 					break;
 
+				case "BoolProperty":
+					mValues.Add(key, new GVASData() { Address = address + 10, Size = 1 });
+					address += 17;
+					break;
+
 				case "ArrayProperty":
 					address += 8;
 					length = SaveData.Instance().ReadNumber(address, 4);

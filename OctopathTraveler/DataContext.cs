@@ -15,8 +15,9 @@ namespace OctopathTraveler
 		public ObservableCollection<MissionID> MissionIDs { get; set; } = new ObservableCollection<MissionID>();
 		public ObservableCollection<CountryMission> Countris { get; set; } = new ObservableCollection<CountryMission>();
 		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
-		public List<NameValueInfo> Jobs { get; private set; } = Info.Instance().Jobs;
-		public List<NameValueInfo> Names { get; private set; } = Info.Instance().CharaNames;
+		public ObservableCollection<TameMonster> TameMonsters { get; set; } = new ObservableCollection<TameMonster>();
+
+		public Info Info { get; private set; } = Info.Instance();
 
 		private readonly uint mMoneyAddress;
 		public DataContext()
@@ -88,6 +89,15 @@ namespace OctopathTraveler
 						id++;
 					}
 				}
+			}
+
+			gvas = new GVAS(null);
+			uint tame = save.FindAddress("TameMonsterData", 0)[0];
+			for (uint i = 0; i < 10; i++)
+			{
+				uint enemyAddress = save.FindAddress("EnemyID_", tame)[0];
+				TameMonsters.Add(new TameMonster(enemyAddress));
+				tame = enemyAddress + 1;
 			}
 
 			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;

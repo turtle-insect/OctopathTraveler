@@ -12,6 +12,7 @@ namespace OctopathTraveler
 		public List<NameValueInfo> Equipments { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Countris { get; private set; } = new List<NameValueInfo>();
 		public List<NameValueInfo> Places { get; private set; } = new List<NameValueInfo>();
+		public List<TameMonsterInfo> TameMonsters { get; private set; } = new List<TameMonsterInfo>();
 
 		private Info() { }
 
@@ -25,7 +26,8 @@ namespace OctopathTraveler
 			return mThis;
 		}
 
-		public NameValueInfo Search(List<NameValueInfo> list, uint id)
+		public NameValueInfo Search<Type>(List<Type> list, uint id)
+			where Type : NameValueInfo, new()
 		{
 			int min = 0;
 			int max = list.Count;
@@ -47,6 +49,7 @@ namespace OctopathTraveler
 			AppendList("info\\equipment.txt", Equipments);
 			AppendList("info\\country.txt", Countris);
 			AppendList("info\\place.txt", Places);
+			AppendList("info\\monster.txt", TameMonsters);
 		}
 
 		private void AppendList<Type>(String filename, List<Type> items)
