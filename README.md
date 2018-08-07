@@ -1,3 +1,4 @@
+![DL Count](https://img.shields.io/github/downloads/turtle-insect/OctopathTraveler/total.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/p0qp4jhksi2j0ktq?svg=true)](https://ci.appveyor.com/project/turtle-insect/octopathtraveler)
 
 # Langage
