@@ -4,22 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OctopathTraveler"
+        xmlns:properties="clr-namespace:OctopathTraveler.Properties"
         mc:Ignorable="d"
-        Title="アイテム選択" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="{x:Static properties:Resources.ItemChoiceTitle}" Height="300" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
     <Grid>
         <DockPanel>
             <DockPanel DockPanel.Dock="Top">
-                <Label Content="フィルタ"/>
-                <TextBox x:Name="TextBoxFilter" TextChanged="TextBoxFilter_TextChanged"/>
+                <Label Content="{x:Static properties:Resources.ItemChoiceFilter}"/>
+                <TextBox x:Name="TextBoxFilter" TextChanged="TextBoxFilter_TextChanged" TabIndex="0"/>
             </DockPanel>
             <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="ButtonDecision" Content="決定" IsEnabled="False" Click="ButtonDecision_Click"/>
-                <Button Content="キャンセル" Grid.Column="1" IsCancel="True"/>
+                <Button x:Name="ButtonDecision" Content="{x:Static properties:Resources.ItemChoiceOK}" IsEnabled="False" Click="ButtonDecision_Click"/>
+                <Button Content="{x:Static properties:Resources.ItemChoiceCancel}" Grid.Column="1" IsCancel="True"/>
             </Grid>
             <ListBox x:Name="ListBoxItem" SelectionChanged="ListBoxItem_SelectionChanged" DisplayMemberPath="Name"/>
         </DockPanel>

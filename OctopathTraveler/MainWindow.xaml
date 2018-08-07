@@ -4,32 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OctopathTraveler"
+        xmlns:properties="clr-namespace:OctopathTraveler.Properties"
         mc:Ignorable="d"
-        Title="OCTOPATH TRAVELER セーブデータ改造(Nintendo Switch)" Height="650" Width="800"
+        Title="{x:Static properties:Resources.MainWindowTitle}" Height="650" Width="800"
         WindowStartupLocation="CenterScreen"
         AllowDrop="True" Drop="Window_Drop" PreviewDragOver="Window_PreviewDragOver">
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="ファイル(_F)">
-                    <MenuItem Header="開く(_O)" Click="MenuItemFileOpen_Click"/>
-                    <MenuItem Header="上書き保存(_S)" Click="MenuItemFileSave_Click"/>
-                    <MenuItem Header="名前を付けて保存(_S)" Click="MenuItemFileSaveAs_Click"/>
+                <MenuItem Header="{x:Static properties:Resources.MenuFile}">
+                    <MenuItem Header="{x:Static properties:Resources.MenuFileOpen}" Click="MenuItemFileOpen_Click"/>
+                    <MenuItem Header="{x:Static properties:Resources.MenuFileSave}" Click="MenuItemFileSave_Click"/>
+                    <MenuItem Header="{x:Static properties:Resources.MenuFileSaveAs}" Click="MenuItemFileSaveAs_Click"/>
                     <Separator/>
-                    <MenuItem Header="終了(_X)" Click="MenuItemExit_Click"/>
+                    <MenuItem Header="{x:Static properties:Resources.MenuExit}" Click="MenuItemExit_Click"/>
                 </MenuItem>
-                <MenuItem Header="情報(_A)" Click="MenuItemAbout_Click"/>
+                <MenuItem Header="{x:Static properties:Resources.MenuAbout}" Click="MenuItemAbout_Click"/>
             </Menu>
             <ToolBar DockPanel.Dock="Top">
-                <Button Width="32" Height="32" Click="ToolBarFileOpen_Click" ToolTip="開く">
+                <Button Width="32" Height="32" Click="ToolBarFileOpen_Click" ToolTip="{x:Static properties:Resources.ToolTipOpen}">
                     <Image Source="{StaticResource Open}"/>
                 </Button>
-                <Button Width="32" Height="32" Click="ToolBarFileSave_Click" ToolTip="保存">
+                <Button Width="32" Height="32" Click="ToolBarFileSave_Click" ToolTip="{x:Static properties:Resources.ToolTipSave}">
                     <Image Source="{StaticResource Save}"/>
                 </Button>
             </ToolBar>
             <TabControl>
-                <TabItem Header="基本情報">
+                <TabItem Header="{x:Static properties:Resources.TabItemBasic}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -43,11 +44,11 @@
                             <RowDefinition/>
                             <RowDefinition Height="12*"/>
                         </Grid.RowDefinitions>
-                        <Label Content="お金"/>
+                        <Label Content="{x:Static properties:Resources.BacisMoney}"/>
                         <TextBox Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="人物">
+                <TabItem Header="{x:Static properties:Resources.TabItemCharacter}">
                     <Grid>
                         <Grid.Resources>
                             <local:CharactorNameConverter x:Key="CharactorNameConverter"/>
@@ -188,7 +189,7 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="アイテム">
+                <TabItem Header="{x:Static properties:Resources.TabItemItems}">
                     <TabItem.Resources>
                         <local:ItemNameConverter x:Key="ItemNameConverter"/>
                     </TabItem.Resources>
@@ -205,7 +206,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
-                <TabItem Header="場所">
+                <TabItem Header="{x:Static properties:Resources.TabItemPlaces}">
                     <ListBox ItemsSource="{Binding Places}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -214,7 +215,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
-                <TabItem Header="手なずけたモンスター">
+                <TabItem Header="{x:Static properties:Resources.TabItemTameMonster}">
                     <TabItem.Resources>
                         <local:TameMonsterConverter x:Key="TameMonsterConverter"/>
                     </TabItem.Resources>
@@ -234,7 +235,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </TabItem>
-                <TabItem Header="パーティー">
+                <TabItem Header="{x:Static properties:Resources.TabItemParty}">
                     <Grid>
                         <Grid.Resources>
                             <local:PartyMemberConverter x:Key="PartyMemberConverter"/>
@@ -254,7 +255,7 @@
                         </ListBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="サブストーリー">
+                <TabItem Header="{x:Static properties:Resources.TabItemQuests}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -272,7 +273,7 @@
                             </ListBox>
                         </DockPanel>
                         <DockPanel Grid.Column="1">
-                            <Label DockPanel.Dock="Top" Content="国"/>
+                            <Label DockPanel.Dock="Top" Content="{x:Static properties:Resources.QuestsCountry}"/>
                             <ListBox Name="CountryList" ItemsSource="{Binding Countris}" DisplayMemberPath="Country"/>
                         </DockPanel>
                         <ListBox Grid.Column="2" ItemsSource="{Binding ElementName=CountryList, Path=SelectedItem.Missions}">

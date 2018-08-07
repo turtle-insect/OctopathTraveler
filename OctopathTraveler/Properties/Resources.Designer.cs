@@ -4,68 +4,285 @@
 //     ランタイム バージョン:4.0.30319.42000
 //
 //     このファイルへの変更は、以下の状況下で不正な動作の原因になったり、
-//     コードが再生成されるときに損失したりします
+//     コードが再生成されるときに損失したりします。
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OctopathTraveler.Properties
-{
-
-
-	/// <summary>
-	///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
-	/// </summary>
-	// このクラスは StronglyTypedResourceBuilder クラスによって ResGen
-	// または Visual Studio のようなツールを使用して自動生成されました。
-	// メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
-	// ResGen を実行し直すか、または VS プロジェクトをリビルドします。
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
-	[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-	internal class Resources
-	{
-
-		private static global::System.Resources.ResourceManager resourceMan;
-
-		private static global::System.Globalization.CultureInfo resourceCulture;
-
-		[global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-		internal Resources()
-		{
-		}
-
-		/// <summary>
-		///   このクラスで使用されるキャッシュされた ResourceManager インスタンスを返します。
-		/// </summary>
-		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-		internal static global::System.Resources.ResourceManager ResourceManager
-		{
-			get
-			{
-				if ((resourceMan == null))
-				{
-					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OctopathTraveler.Properties.Resources", typeof(Resources).Assembly);
-					resourceMan = temp;
-				}
-				return resourceMan;
-			}
-		}
-
-		/// <summary>
-		///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
-		///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
-		/// </summary>
-		[global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-		internal static global::System.Globalization.CultureInfo Culture
-		{
-			get
-			{
-				return resourceCulture;
-			}
-			set
-			{
-				resourceCulture = value;
-			}
-		}
-	}
+namespace OctopathTraveler.Properties {
+    using System;
+    
+    
+    /// <summary>
+    ///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+    /// </summary>
+    // このクラスは StronglyTypedResourceBuilder クラスが ResGen
+    // または Visual Studio のようなツールを使用して自動生成されました。
+    // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
+    // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+    public class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OctopathTraveler.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+        ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        public static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Money に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BacisMoney {
+            get {
+                return ResourceManager.GetString("BacisMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ItemChoiceCancel {
+            get {
+                return ResourceManager.GetString("ItemChoiceCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Filter に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ItemChoiceFilter {
+            get {
+                return ResourceManager.GetString("ItemChoiceFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OK に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ItemChoiceOK {
+            get {
+                return ResourceManager.GetString("ItemChoiceOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Item Selection に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ItemChoiceTitle {
+            get {
+                return ResourceManager.GetString("ItemChoiceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   OCTOPATH TRAVELER SaveDataEditor(Nintendo Switch) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MainWindowTitle {
+            get {
+                return ResourceManager.GetString("MainWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save Fail に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MeaageSaveFail {
+            get {
+                return ResourceManager.GetString("MeaageSaveFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (_A)bout に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuAbout {
+            get {
+                return ResourceManager.GetString("MenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (_E)xit に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuExit {
+            get {
+                return ResourceManager.GetString("MenuExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (_F)ile に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuFile {
+            get {
+                return ResourceManager.GetString("MenuFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (_O)pen に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuFileOpen {
+            get {
+                return ResourceManager.GetString("MenuFileOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   (_S)ave に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuFileSave {
+            get {
+                return ResourceManager.GetString("MenuFileSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save(_A)s... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MenuFileSaveAs {
+            get {
+                return ResourceManager.GetString("MenuFileSaveAs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Load Success に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageLoadSuccess {
+            get {
+                return ResourceManager.GetString("MessageLoadSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save Success に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string MessageSaveSuccess {
+            get {
+                return ResourceManager.GetString("MessageSaveSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Country に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string QuestsCountry {
+            get {
+                return ResourceManager.GetString("QuestsCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Basic に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemBasic {
+            get {
+                return ResourceManager.GetString("TabItemBasic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Character に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemCharacter {
+            get {
+                return ResourceManager.GetString("TabItemCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Items に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemItems {
+            get {
+                return ResourceManager.GetString("TabItemItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Party に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemParty {
+            get {
+                return ResourceManager.GetString("TabItemParty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Places に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemPlaces {
+            get {
+                return ResourceManager.GetString("TabItemPlaces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Quests に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemQuests {
+            get {
+                return ResourceManager.GetString("TabItemQuests", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   TameMonster に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemTameMonster {
+            get {
+                return ResourceManager.GetString("TabItemTameMonster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolTipOpen {
+            get {
+                return ResourceManager.GetString("ToolTipOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Save に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ToolTipSave {
+            get {
+                return ResourceManager.GetString("ToolTipSave", resourceCulture);
+            }
+        }
+    }
 }

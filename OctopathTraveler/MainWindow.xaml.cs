@@ -39,7 +39,7 @@ namespace OctopathTraveler
 
 			SaveData.Instance().Open(files[0]);
 			Init();
-			MessageBox.Show("読込成功");
+			MessageBox.Show(Properties.Resources.MessageLoadSuccess);
 		}
 
 		private void MenuItemFileOpen_Click(object sender, RoutedEventArgs e)
@@ -57,8 +57,8 @@ namespace OctopathTraveler
 			SaveFileDialog dlg = new SaveFileDialog();
 			if (dlg.ShowDialog() == false) return;
 
-			if (SaveData.Instance().SaveAs(dlg.FileName) == true) MessageBox.Show("書込成功");
-			else MessageBox.Show("書込失敗");
+			if (SaveData.Instance().SaveAs(dlg.FileName) == true) MessageBox.Show(Properties.Resources.MessageSaveSuccess);
+			else MessageBox.Show(Properties.Resources.MeaageSaveFail);
 		}
 
 		private void MenuItemExit_Click(object sender, RoutedEventArgs e)
@@ -93,13 +93,13 @@ namespace OctopathTraveler
 
 			SaveData.Instance().Open(dlg.FileName);
 			Init();
-			MessageBox.Show("読込成功");
+			MessageBox.Show(Properties.Resources.MessageLoadSuccess);
 		}
 
 		private void Save()
 		{
-			if (SaveData.Instance().Save() == true) MessageBox.Show("書込成功");
-			else MessageBox.Show("書込失敗");
+			if (SaveData.Instance().Save() == true) MessageBox.Show(Properties.Resources.MessageSaveSuccess);
+			else MessageBox.Show(Properties.Resources.MeaageSaveFail);
 		}
 
 		private void ButtonSword_Click(object sender, RoutedEventArgs e)

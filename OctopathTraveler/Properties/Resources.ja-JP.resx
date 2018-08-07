@@ -118,78 +118,78 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="BacisMoney" xml:space="preserve">
-    <value>Money</value>
+    <value>お金</value>
   </data>
   <data name="ItemChoiceCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="ItemChoiceFilter" xml:space="preserve">
-    <value>Filter</value>
+    <value>フィルタ</value>
   </data>
   <data name="ItemChoiceOK" xml:space="preserve">
-    <value>OK</value>
+    <value>決定</value>
   </data>
   <data name="ItemChoiceTitle" xml:space="preserve">
-    <value>Item Selection</value>
+    <value>アイテム選択</value>
   </data>
   <data name="MainWindowTitle" xml:space="preserve">
-    <value>OCTOPATH TRAVELER SaveDataEditor(Nintendo Switch)</value>
+    <value>OCTOPATH TRAVELER セーブデータ改造(Nintendo Switch)</value>
   </data>
   <data name="MeaageSaveFail" xml:space="preserve">
-    <value>Save Fail</value>
+    <value>書込失敗</value>
   </data>
   <data name="MenuAbout" xml:space="preserve">
-    <value>(_A)bout</value>
+    <value>情報</value>
   </data>
   <data name="MenuExit" xml:space="preserve">
-    <value>(_E)xit</value>
+    <value>終了</value>
   </data>
   <data name="MenuFile" xml:space="preserve">
-    <value>(_F)ile</value>
+    <value>ファイル(_F)</value>
   </data>
   <data name="MenuFileOpen" xml:space="preserve">
-    <value>(_O)pen</value>
+    <value>開く(_O)</value>
   </data>
   <data name="MenuFileSave" xml:space="preserve">
-    <value>(_S)ave</value>
+    <value>保存(_S)</value>
   </data>
   <data name="MenuFileSaveAs" xml:space="preserve">
-    <value>Save(_A)s...</value>
+    <value>名前を付けて保存(_S)...</value>
   </data>
   <data name="MessageLoadSuccess" xml:space="preserve">
-    <value>Load Success</value>
+    <value>読込成功</value>
   </data>
   <data name="MessageSaveSuccess" xml:space="preserve">
-    <value>Save Success</value>
+    <value>書込成功</value>
   </data>
   <data name="QuestsCountry" xml:space="preserve">
-    <value>Country</value>
+    <value>国</value>
   </data>
   <data name="TabItemBasic" xml:space="preserve">
-    <value>Basic</value>
+    <value>基本情報</value>
   </data>
   <data name="TabItemCharacter" xml:space="preserve">
-    <value>Character</value>
+    <value>人物</value>
   </data>
   <data name="TabItemItems" xml:space="preserve">
-    <value>Items</value>
+    <value>アイテム</value>
   </data>
   <data name="TabItemParty" xml:space="preserve">
-    <value>Party</value>
+    <value>パーティー</value>
   </data>
   <data name="TabItemPlaces" xml:space="preserve">
-    <value>Places</value>
+    <value>場所</value>
   </data>
   <data name="TabItemQuests" xml:space="preserve">
-    <value>Quests</value>
+    <value>サブストーリー</value>
   </data>
   <data name="TabItemTameMonster" xml:space="preserve">
-    <value>TameMonster</value>
+    <value>手なずけたモンスター</value>
   </data>
   <data name="ToolTipOpen" xml:space="preserve">
-    <value>Open</value>
+    <value>開く</value>
   </data>
   <data name="ToolTipSave" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
 </root>
