@@ -31,6 +31,9 @@
             </ToolBar>
             <TabControl>
                 <TabItem Header="{x:Static properties:Resources.TabItemBasic}">
+                    <TabItem.Resources>
+                        <local:HeroIDConverter x:Key="HeroIDConverter"/>
+                    </TabItem.Resources>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -42,10 +45,13 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition Height="12*"/>
+                            <RowDefinition Height="13*"/>
                         </Grid.RowDefinitions>
                         <Label Content="{x:Static properties:Resources.BacisMoney}"/>
                         <TextBox Grid.Column="1" Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Grid.Row="1" Content="{x:Static properties:Resources.BasicHero}"/>
+                        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Info.CharaNames}" DisplayMemberPath="Name"
+                                  SelectedIndex="{Binding Hero, Converter={StaticResource HeroIDConverter}}"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="{x:Static properties:Resources.TabItemCharacter}">
@@ -230,6 +236,42 @@
                                     <Label Content="Count "/>
                                     <TextBox Text="{Binding Count,UpdateSourceTrigger=PropertyChanged}" Width="80"/>
                                     <CheckBox IsChecked="{Binding Used}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </TabItem>
+                <TabItem Header="{x:Static properties:Resources.TabItemWeak}">
+                    <ListBox ItemsSource="{Binding EnemyWeaknesses}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Name"/>
+                                    <Label Content="" Width="200"/>
+                                    <Label Content="Sword"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Sword}"/>
+                                    <Label Content="Lance"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Lance}"/>
+                                    <Label Content="Dagger"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dagger}"/>
+                                    <Label Content="Axe"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Axe}"/>
+                                    <Label Content="Bow"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Bow}"/>
+                                    <Label Content="Rod"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Rod}"/>
+                                    <Label Content="Fire"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Fire}"/>
+                                    <Label Content="Ice"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Ice}"/>
+                                    <Label Content="Thunder"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Thunder}"/>
+                                    <Label Content="Wind"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Wind}"/>
+                                    <Label Content="Light"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Light}"/>
+                                    <Label Content="Dark"/>
+                                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dark}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

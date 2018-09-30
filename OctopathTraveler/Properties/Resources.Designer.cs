@@ -47,7 +47,7 @@ namespace OctopathTraveler.Properties {
         }
         
         /// <summary>
-        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+        ///   すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -66,6 +66,15 @@ namespace OctopathTraveler.Properties {
         public static string BacisMoney {
             get {
                 return ResourceManager.GetString("BacisMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hero に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BasicHero {
+            get {
+                return ResourceManager.GetString("BasicHero", resourceCulture);
             }
         }
         
@@ -264,6 +273,15 @@ namespace OctopathTraveler.Properties {
         public static string TabItemTameMonster {
             get {
                 return ResourceManager.GetString("TabItemTameMonster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Weak に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string TabItemWeak {
+            get {
+                return ResourceManager.GetString("TabItemWeak", resourceCulture);
             }
         }
         

@@ -16,10 +16,12 @@ namespace OctopathTraveler
 		public ObservableCollection<CountryMission> Countris { get; set; } = new ObservableCollection<CountryMission>();
 		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
 		public ObservableCollection<TameMonster> TameMonsters { get; set; } = new ObservableCollection<TameMonster>();
+		public ObservableCollection<EnemyWeakness> EnemyWeaknesses { get; set; } = new ObservableCollection<EnemyWeakness>();
 
 		public Info Info { get; private set; } = Info.Instance();
 
 		private readonly uint mMoneyAddress;
+		private readonly uint mHeroAddress;
 		public DataContext()
 		{
 			SaveData save = SaveData.Instance();
@@ -100,13 +102,31 @@ namespace OctopathTraveler
 				tame = enemyAddress + 1;
 			}
 
-			mMoneyAddress = save.FindAddress("Money", 0)[0] + 0x42;
+			uint weaks = save.FindAddress("EnemyInfoData", 0)[0];
+			System.Console.WriteLine(save.FindAddress("IsAnalyse_", 0).Count);
+			foreach(uint i in save.FindAddress("IsAnalyse_", 0))
+			{
+				EnemyWeaknesses.Add(new EnemyWeakness(i));
+			}
+
+			gvas = new GVAS(null);
+			gvas.AppendValue(save.FindAddress("Money_", 0)[0]);
+			mMoneyAddress = gvas.Key("Money").Address;
+			gvas = new GVAS(null);
+			gvas.AppendValue(save.FindAddress("FirstSelectCharacterID", 0)[0]);
+			mHeroAddress = gvas.Key("FirstSelectCharacterID").Address;
 		}
 
 		public uint Money
 		{
 			get { return SaveData.Instance().ReadNumber(mMoneyAddress, 4); }
 			set { Util.WriteNumber(mMoneyAddress, 4, value, 0, 9999999); }
+		}
+
+		public uint Hero
+		{
+			get { return SaveData.Instance().ReadNumber(mHeroAddress, 4); }
+			set { SaveData.Instance().WriteNumber(mHeroAddress, 4, value); }
 		}
 	}
 }

@@ -120,6 +120,9 @@
   <data name="BacisMoney" xml:space="preserve">
     <value>お金</value>
   </data>
+  <data name="BasicHero" xml:space="preserve">
+    <value>主人公</value>
+  </data>
   <data name="ItemChoiceCancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="TabItemTameMonster" xml:space="preserve">
     <value>手なずけたモンスター</value>
+  </data>
+  <data name="TabItemWeak" xml:space="preserve">
+    <value>弱点</value>
   </data>
   <data name="ToolTipOpen" xml:space="preserve">
     <value>開く</value>
