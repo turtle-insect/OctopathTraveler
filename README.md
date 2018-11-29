@@ -1,6 +1,9 @@
 ![DL Count](https://img.shields.io/github/downloads/turtle-insect/OctopathTraveler/total.svg)
 [![Build status](https://ci.appveyor.com/api/projects/status/p0qp4jhksi2j0ktq?svg=true)](https://ci.appveyor.com/project/turtle-insect/octopathtraveler)
 
+# 寄付
+<a href="https://www.buymeacoffee.com/06yi7RLlT" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 # Langage
 [English](README_EN.md)
 
