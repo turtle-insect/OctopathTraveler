@@ -68,7 +68,7 @@ namespace OctopathTraveler
 			set
 			{
 				GVASData data = mGVAS.Key("Exp");
-				Util.WriteNumber(data.Address, data.Size, value, 0, 9999999);
+				Util.WriteNumber(data.Address, data.Size, value, 0, 5505414);
 			}
 		}
 
@@ -138,7 +138,7 @@ namespace OctopathTraveler
 			set
 			{
 				GVASData data = mGVAS.Key("JobPoint");
-				Util.WriteNumber(data.Address, data.Size, value, 0, 99999);
+				Util.WriteNumber(data.Address, data.Size, value, 0, 999999);
 			}
 		}
 
