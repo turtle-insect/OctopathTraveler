@@ -4,6 +4,9 @@
 # Langage
 [English](README_EN.md)
 
+# recommendation
+https://github.com/turtle-insect/GvasViewer
+
 # 概要
 Switch OCTOPATH TRAVELER(オクトパス トラベラー)のセーブデータ編集Tool
 
